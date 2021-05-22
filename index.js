@@ -80,22 +80,18 @@ app.get("/api/remove/:id?", function(req, res) {
   }
   return res.json(false);
 });
-// Start the Server
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
-});
 
-const express = require('express');
-const path = require('path');
+// const express = require('express');
+// const path = require('path');
 
 
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// const app = express();
+// const PORT = process.env.PORT || 3000;
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 
 const reservations = [];
@@ -110,5 +106,10 @@ app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.htm
 app.get('/api/tables', (req, res) => res.json(characters));
 
 
-app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
+// app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
 
+
+// Start the Server
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});
