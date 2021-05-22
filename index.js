@@ -80,4 +80,7 @@ app.get("/api/remove/:id?", function(req, res) {
   }
   return res.json(false);
 });
-
+// Start the Server
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});
