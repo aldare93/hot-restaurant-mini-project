@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <title>Reservation Page</title>
     <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
 
@@ -67,44 +67,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-
-        const addBtn = document.getElementById('add-btn');
-
-        // Question: What is "e" short for?
-        addBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Question: What does this code do?
-            let charName = document.getElementById('name').value.trim();
-            let charRole = document.getElementById('phone').value.trim();
-            let charAge = document.getElementById('email').value.trim();
-            let charFp = document.getElementById('id').value.trim();
-
-            let newReservation = {
-                name: name,
-                phone: phone,
-                email: email,
-                id: id,
-            };
-
-            // Question: What does this code do??
-            fetch('/api/reservations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newReservation),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    alert(`Adding reservation: ${data.name}`);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
+    <script src="demo.js"></script>
 </body>
 
 </html>
