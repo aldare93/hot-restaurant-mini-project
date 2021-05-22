@@ -80,7 +80,7 @@
             let resEmail = document.getElementById('email').value.trim();
             let resID = document.getElementById('id').value.trim();
 
-            let newCharacter = {
+            let tableData = {
                 name: resName,
                 phone: resPhone,
                 email: resEmail,
@@ -88,7 +88,7 @@
             };
 
             // Question: What does this code do??
-            fetch('/api/reservations', {
+            fetch('/api/tables', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
