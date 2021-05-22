@@ -66,8 +66,50 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <script src="demo.js"></script>
+=======
+    <script type="text/javascript">
+
+        const addBtn = document.getElementById('add-btn');
+
+        // Question: What is "e" short for?
+        addBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Question: What does this code do?
+            let resName = document.getElementById('name').value.trim();
+            let resPhone = document.getElementById('phone').value.trim();
+            let resEmail = document.getElementById('email').value.trim();
+            let resID = document.getElementById('id').value.trim();
+
+            let tableData = {
+                name: resName,
+                phone: resPhone,
+                email: resEmail,
+                id: resID,
+            };
+
+            // Question: What does this code do??
+            fetch('/api/new', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(tableData),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('reserve.html', data);
+                    alert(`Adding reservation: ${data.name}`);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+>>>>>>> c5357ad14da7ec2a0f87a52be2021b480b63beed
 </body>
 
 </html>
