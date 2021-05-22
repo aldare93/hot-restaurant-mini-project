@@ -15,13 +15,16 @@
             <h1><span class="fa fa-fire"></span> Hot Restaurant</h1>
             <h3>Make your reservation</h3>
             <hr />
-
-            <button id="tables" class="btn btn-primary btn-lg">
-                View Tables
-            </button>
-            <button class="btn btn-default btn-lg">
-                <i class="fas fa-home"></i>
-            </button>
+            <a href="/tables">
+                <button id="tables" class="btn btn-primary btn-lg">
+                    View Tables
+                </button>
+            </a>
+            <a href="/">
+                <button class="btn btn-default btn-lg">
+                    <i class="fas fa-home"></i>
+                </button>
+            </a>
 
         </div>
         <div class="row">
@@ -74,29 +77,28 @@
 
             // Question: What does this code do?
             let charName = document.getElementById('name').value.trim();
-            let charRole = document.getElementById('role').value.trim();
-            let charAge = document.getElementById('age').value.trim();
-            let charFp = document.getElementById('force-points').value.trim();
+            let charRole = document.getElementById('phone').value.trim();
+            let charAge = document.getElementById('email').value.trim();
+            let charFp = document.getElementById('id').value.trim();
 
-            let newCharacter = {
-                name: charName,
-                role: charRole,
-                age: parseInt(charAge),
-                forcePoints: parseInt(charFp),
+            let newReservation = {
+                name: name,
+                phone: phone,
+                email: email,
+                id: id,
             };
 
             // Question: What does this code do??
-            fetch('/api/characters', {
+            fetch('/api/reservations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newCharacter),
+                body: JSON.stringify(newReservation),
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log('add.html', data);
-                    alert(`Adding character: ${data.name}`);
+                    alert(`Adding reservation: ${data.name}`);
                 })
                 .catch((error) => {
                     console.error('Error:', error);

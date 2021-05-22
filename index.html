@@ -13,15 +13,18 @@
     <div class="container">
         <div class="jumbotron text-center">
             <h1><span class="fa fa-fire"></span> Hot Restaurant</h1>
-            <h3>We only have 5 talbes! Book your seat before theya re gone</h3>
+            <h3>We only have 5 tables! Book your seat before they are gone</h3>
             <hr />
-
-            <button id="tables" class="btn btn-primary btn-lg">
-                View Tables
-            </button>
-            <button id="makeReservation" class="btn btn-danger btn-lg">
-                Make Reservation
-            </button>
+            <a href="/tables">
+                <button id="tables" class="btn btn-primary btn-lg">
+                    View Tables
+                </button>
+            </a>
+            <a href="/reserve">
+                <button id="makeReservation" class="btn btn-danger btn-lg">
+                    Make Reservation
+                </button>
+            </a>
 
         </div>
 
@@ -30,42 +33,9 @@
 
     <script type="text/javascript">
 
-        const addBtn = document.getElementById('add-btn');
+        const tablesBtn = document.getElementById('tables');
+        const reservationsBtn = document.getElementByI('makeReservation');
 
-        // Question: What is "e" short for?
-        addBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Question: What does this code do?
-            let charName = document.getElementById('name').value.trim();
-            let charRole = document.getElementById('role').value.trim();
-            let charAge = document.getElementById('age').value.trim();
-            let charFp = document.getElementById('force-points').value.trim();
-
-            let newCharacter = {
-                name: charName,
-                role: charRole,
-                age: parseInt(charAge),
-                forcePoints: parseInt(charFp),
-            };
-
-            // Question: What does this code do??
-            fetch('/api/characters', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newCharacter),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log('add.html', data);
-                    alert(`Adding character: ${data.name}`);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        });
     </script>
 </body>
 
